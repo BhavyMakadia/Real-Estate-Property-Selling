@@ -22,23 +22,19 @@ className='bg-transpert focus:outline-none w-24 sm:w-64' />
 <FaSearch className='text-slate-600'/>
 </form>
 <ul className='flex gap-4'>
-  <Link to='/Home'>
+  <Link to='/'>
   <li className='hidden sm:inline text-slate-100 hover:text-slate-500 font-bold  rounded '>Home</li>
   </Link>
   <Link to='/About'>
     <li className='hidden sm:inline text-slate-100 hover:text-slate-500 font-bold  rounded '>About</li>
   </Link> 
-  <Link to='/SignIn'>
+  {/* <Link to='/SignIn'>
     <li className='hidden sm:inline text-slate-100 hover:text-slate-500 font-bold  rounded '>SignIn</li>
   </Link> 
-  
+   */}
   <Link to='/Profile'>
             {currentUser ? (
-              <img
-                className='rounded-full h-7 w-7 object-cover'
-               src={currentUser.avatar}
-                 alt='profile'
-              />
+              <img src={currentUser.avatar} className='rounded-full h-7 w-7 object-cover' alt='profile'/>
             ) : (
               <li className='hidden sm:inline text-slate-100 hover:text-slate-500 font-bold  rounded '> Sign In</li>
             )}

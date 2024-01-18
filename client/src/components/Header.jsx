@@ -33,10 +33,14 @@ className='bg-transpert focus:outline-none w-24 sm:w-64' />
   </Link> 
    */}
   <Link to='/Profile'>
-            {currentUser ? (
-              <img src={currentUser.avatar} className='rounded-full h-7 w-7 object-cover' alt='profile'/>
+            { currentUser ? (
+              <img
+                className='rounded-full h-7 w-7 object-cover'
+                src={currentUser.avatar}
+                alt='profile'
+              />
             ) : (
-              <li className='hidden sm:inline text-slate-100 hover:text-slate-500 font-bold  rounded '> Sign In</li>
+              <li className='hidden sm:inline text-slate-100 hover:text-slate-500 font-bold  rounded'> Sign in</li>
             )}
           </Link>
 

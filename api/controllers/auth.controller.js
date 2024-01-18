@@ -4,6 +4,7 @@ import { errorHandler } from '../utils/error.js';
 import jwt from 'jsonwebtoken';
 import e from 'express';
 
+
 export const signup = async (req, res, next) => {
   const { username, email, password } = req.body;
   const hashedPassword = bcryptjs.hashSync(password, 10);
@@ -63,5 +64,16 @@ res
   }
   catch(error){
     next(error);
+  }
+}
+
+export const signOut =async(req,res,next)=>{
+  try {
+    res.clearCookie('access_token');
+    res.status(200).json(0);
+    
+    
+  } catch (error) {
+    next(error)
   }
 }

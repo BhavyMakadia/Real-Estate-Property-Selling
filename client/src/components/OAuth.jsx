@@ -29,13 +29,13 @@ export default function OAuth() {
         body: JSON.stringify({ name: result.user.displayName, email: result.user.email,photo: result.user.photoURL}),
 
         })
-    const data= await res.json()
+    const data= await res.json();
     console.log(data);
     dispatch(signInSuccess(data));
     navigate('/');
         }
       catch(error){
-//console.log("plaese try agin you aare not able to do login");
+console.log("plaese try agin you aare not able to do login");
         }};
   return (
     <button  onClick={GoogleAuth} type='button'   className='bg-red-700 text -white p-3 rounded-lg uppercase hover:opacity-95'> Continue with Google</button>

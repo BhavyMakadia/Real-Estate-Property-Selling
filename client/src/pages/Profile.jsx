@@ -9,10 +9,12 @@ import {
   deleteUserFailure,
   deleteUserStart,
   deleteUserSuccess,
+  signInFailure,
+  signOutUserStart
 } from "../redux/user/userSlice";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-
+import { Navigate } from "react-router-dom";
 export default function Profile() {
   const [formData, setFormData] = useState({});
   const dispatch = useDispatch();
@@ -64,12 +66,31 @@ export default function Profile() {
         return;
       }
       dispatch(deleteUserSuccess(data));
-      navigate('/');
+      window.location.replace("/");
+      
     } catch (error) {
       dispatch(deleteUserFailure(error.message))
 
     }
   }
+  const handleSignOut = async () => {
+    console.log("signout");
+    try {
+      dispatch(signOutUserStart());
+      const res = await fetch('/api/auth/signout');
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(deleteUserFailure(data.message));
+        return;
+      }
+      dispatch(deleteUserSuccess(data));
+      
+    alert("User is deleted");
+      window.location.replace("/signin");
+    } catch (error) {
+      dispatch(deleteUserFailure(error.message));
+    }
+  };
   return (
     <div className="p-3 max-w-lg mx-auto">
       <h1 className="text-3xl font-semibold text-center my-7">Profile</h1>
@@ -114,7 +135,7 @@ export default function Profile() {
         <span onClick={handleDeleteUser} className="text-red-600 text-lg font-bold cursor-pointer">
           Delete
         </span>
-        <span className="text-red-600 text-lg  font-bold cursor-pointer">
+        <span onClick={handleSignOut} className="text-red-600 text-lg  font-bold cursor-pointer">
           Sign Out
         </span>
       </div>

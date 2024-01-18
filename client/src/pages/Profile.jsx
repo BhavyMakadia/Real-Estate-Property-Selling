@@ -85,7 +85,7 @@ export default function Profile() {
       }
       dispatch(deleteUserSuccess(data));
       
-    alert("User is deleted");
+   
       window.location.replace("/signin");
     } catch (error) {
       dispatch(deleteUserFailure(error.message));
@@ -127,13 +127,16 @@ export default function Profile() {
           className="border p-3 rounded-lg"
         />
 
-        <button className="bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-100 disabled:opacity-80">
+        <button className="bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-70 disabled:opacity-70">
           update
         </button>
+        <Link className="bg-green-700 text-white p-3 rounded-lg uppercase text-center hover:opacity-70 disabled:opacity-70" to={'/createlisting'}>
+          Create Listing
+        </Link>
       </form>
       <div className="flex justify-between mt-4">
         <span onClick={handleDeleteUser} className="text-red-600 text-lg font-bold cursor-pointer">
-          Delete
+          DeleteID
         </span>
         <span onClick={handleSignOut} className="text-red-600 text-lg  font-bold cursor-pointer">
           Sign Out

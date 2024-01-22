@@ -18,10 +18,12 @@ import { Navigate } from "react-router-dom";
 export default function Profile() {
   const [formData, setFormData] = useState({});
   const dispatch = useDispatch();
-  const fileRef = useRef(null);
+           
   const { currentUser, loading, error } = useSelector((state) => state.user);
 
   const [updateSuccess, setUpdateSuccess] = useState(false);
+
+  
 
   //console.log(formData);
   const handleChange = (e) => {
@@ -47,7 +49,7 @@ export default function Profile() {
         return;
       }
       dispatch(updateUserSuccess(data));
-      setUpdateSuccess(true);
+       setUpdateSuccess(true);
     } catch (error) {
       dispatch(updateUserFailure(error.message));
     }
@@ -92,15 +94,19 @@ export default function Profile() {
     }
   };
   return (
-    <div className="p-3 max-w-lg mx-auto">
-      <h1 className="text-3xl font-semibold text-center my-7">Profile</h1>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-        <input type="file" hidden accept="image/" />
+    <div className="bg-[url('/src/img/img2.jpg')] ">
+    <div className="  mx-auto  max-w-lg max-h-lg ">
+      <h1 className="text-3xl font-semibold text-center ">Profile</h1>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4 ">
         <img
-          src={currentUser.avatar}
-          alt="profile"
-          className="rounded-full h-24 w-24 object-cover cursor-pointer self-center mt-2"
+        
+      
+         src={formData.avatar || currentUser.avatar}
+         alt='profile'
+         className='rounded-full h-24 w-24 object-cover cursor-pointer self-center mt-2'
+   
         />
+           
         <input
           type="text"
           onChange={handleChange}
@@ -142,10 +148,11 @@ export default function Profile() {
           Sign Out
         </span>
       </div>
-      <p className="text-red-700 mt-5">{error ? error : ""}</p>
-      <p className="text-green-700 mt-5">
+      <p className="text-red-700 ">{error ? error : ""}</p>
+      <p className="text-green-700 ">
         {updateSuccess ? "User is updated successfully!" : ""}
       </p>
+    </div>
     </div>
   );
 }

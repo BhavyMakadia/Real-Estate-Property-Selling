@@ -1,9 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function CreateListing() {
+  const [files, setFiles] = useState([]);
+  const [formData, setFormData] = useState({
+    imageUrls: [],
+    name: '',
+    description: '',
+    address: '',
+    type: 'rent',
+    bedrooms: 1,
+    bathrooms: 1,
+    regularPrice: 50,
+    discountPrice: 0,
+    offer: false,
+    parking: false,
+    furnished: false,
+  });
+  
+  console.log(files);
+ 
+  const handleImageSubmit = async () => {
+  };
+
+  const handleListingSubmit = async () => {
+ 
+  };
   return (
-    <main className="p-2 max-w-5xl mx-auto">
-      <h1 className="text-2xl font-bold text-center my-9">Create a Listing</h1>
+    <main className="p-2 max-w-5xl my-5 mx-auto bg-slate-200 rounded-xl">
+      <h1 className="text-2xl font-bold text-center my-9">Create a new Listing</h1>
       <form className="flex flex-col sm:flex-row">
         <div className="flex flex-col gap-3 flex-1">
           <input
@@ -124,10 +148,19 @@ export default function CreateListing() {
             </span>
           </p>
           <div className="flex   gap-4 mx-5">
-            <input  className="p-3 border border-gray-300 rounded w-full" type="file" id='images' accept="image/*" multiple/>
-          <button className=" p-3 border border-slate-100 rounded uppercase hover:opacity-80  disabled:opacity-80font-bold text-slate-100 bg-slate-800 shadow-md">Upload</button>
+            <input  
+            onChange={(e) => setFiles(e.target.files)} 
+            className="p-3 border border-gray-300 rounded w-full" type="file" id='images' accept="image/*" 
+            multiple/>
+          <button
+            onClick={handleImageSubmit}
+            className="p-3 border border-slate-100 rounded uppercase hover:opacity-80 disabled:opacity-80font-bold text-slate-100 bg-slate-800 shadow-md"
+          >Upload</button>
           </div>
-          <button className="  p-3 border rounded-lg border-slate-100 rounded uppercase hover:opacity-80  disabled:opacity-80 font-bold text-slate-100 bg-slate-800 shadow-md">ADD TO LISTING</button>
+          <button
+          onClick={handleListingSubmit}
+          className="p-3 border rounded-lg border-slate-100 rounded uppercase hover:opacity-80  disabled:opacity-80 font-bold text-slate-100 bg-slate-800 shadow-md"
+        >ADD TO LISTING</button>
        
         </div>
         

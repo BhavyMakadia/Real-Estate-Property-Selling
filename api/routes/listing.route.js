@@ -1,6 +1,14 @@
 import express from 'express';
-import { createListing } from '../controllers/listing.controller.js';
+import { createListing,uploadImages } from '../controllers/listing.controller.js';
+
+import multer from 'multer';
 import { verifyToken } from '../utils/verifyUser.js';
+
+
 const router =express.Router();
-router.post('/create' ,verifyToken,createListing);
-export default router;
+const storage = multer.diskStorage({
+    
+  });
+
+
+export default router;  

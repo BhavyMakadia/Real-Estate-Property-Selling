@@ -5,7 +5,13 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'fornt': "url('/src/img/fornt1.avif')",
+        'img1': "url('/src/img/img1.avif')",
+        
+      }
+    },
   },
   plugins: [],
 }

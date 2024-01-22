@@ -43,7 +43,7 @@ const{ loading,error}= useSelector((state)=>state.user);
   };
   
   return (
-    <div className='p-3 max-w-lg mx-auto'> <h1 className='text-3xl text-center font-semibold my-7'>Sign In</h1>
+    <div className="bg-[url('/src/img/img2.jpg')]"><div className='p-3 max-w-lg mx-auto'> <h1 className='text-3xl text-center font-semibold my-7'>Sign In</h1>
      <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
 
      <input
@@ -76,6 +76,7 @@ const{ loading,error}= useSelector((state)=>state.user);
         </Link>
       </div>
       {error && <p className='text-red-500 mt-5'>{error}</p>}
+    </div>
     </div>
   );
 }

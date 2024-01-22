@@ -19,9 +19,11 @@ mongoose
 
   const app = express();
   app.use(cookieParser());
+
   const port = process.env.PORT || 3000; 
 app.use(express.json());
 app.use(cookieParser());
+
   app.listen(port, () => {
     console.log(`Our Server is running on port ${port}`);
   });

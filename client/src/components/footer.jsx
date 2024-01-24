@@ -15,9 +15,7 @@ export default function footer() {
         </li>
         </Link>
   
-        <Link to='/signin'>
-  <li className='hidden sm:inline text-slate-100 hover:text-slate-500 font-bold  rounded me-4 md:me-6 '>Signin</li>
-  </Link>
+       
 
   <Link to='/Contactus'>
   <li className='hidden sm:inline text-slate-100 hover:text-slate-500 font-bold me-4 md:me-6 rounded '>Contact Us</li>

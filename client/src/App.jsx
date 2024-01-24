@@ -11,6 +11,7 @@ import Footer from './components/footer';
 import Header from './components/Header';
 import PrivateRoute from './components/PrivateRoute';
 import CreateListing from './pages/CreateListing';
+import Showlisting from './pages/Showlisting';
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
         <Route element={<PrivateRoute />}>
         <Route path='/profile' element={<Profile />} />
         <Route path='/createlisting' element={<CreateListing />} />
+        <Route path='/showlisting' element={<Showlisting />} />
         
         </Route>
       </Routes>

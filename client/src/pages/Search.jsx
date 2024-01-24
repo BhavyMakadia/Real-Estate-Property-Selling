@@ -2,7 +2,8 @@ import React from 'react'
 
 export default function () {
   return (
-    <div className='flex flex-col md:flex-row'>
+    <div className="bg-[url('/src/img/img2.jpg')]" >   
+    <div className='  flex flex-col md:flex-row'>
       <div className='p-7  border-b-2 md:border-r-2 md:min-h-screen'>
         <form  className='flex flex-col gap-8'>
           <div className='flex items-center gap-2'>
@@ -23,7 +24,7 @@ export default function () {
               <input
                 type='checkbox'
                 id='all'
-                className='w-5'
+                className='w-10'
                 
               />
               <span>Rent & Sale</span>
@@ -32,7 +33,7 @@ export default function () {
               <input
                 type='checkbox'
                 id='rent'
-                className='w-5'
+                className='w-10'
                
               />
               <span>Rent</span>
@@ -41,7 +42,7 @@ export default function () {
               <input
                 type='checkbox'
                 id='sale'
-                className='w-5'
+                className='w-10'
               
               />
               <span>Sale</span>
@@ -50,7 +51,7 @@ export default function () {
               <input
                 type='checkbox'
                 id='offer'
-                className='w-5'
+                className='w-10'
                 
               />
               <span>Offer</span>
@@ -105,6 +106,7 @@ export default function () {
             >
               Show more
             </button>
+</div>
 </div>
   )
 }

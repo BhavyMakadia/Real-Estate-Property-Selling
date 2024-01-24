@@ -16,12 +16,17 @@ className='bg-transpert focus:outline-none w-24 sm:w-64' />
 </form>
 
 <Link to='/'>
-    <h1 className='font-bold text-sm sm:text-xl flex flex-wrap'>
-   
-      <span className='text-slate-800'>Bhavy</span>
-    <span className='text-slate-100'>Estate</span>
+    <h1 className='font-bold text-sm sm:text-xl flex flex-wrap flex items-center gap-2'>
     
+      
+    <img
+        src="/src/img/logo.png"
+        alt="Your Image Description"
+        className="mx-auto  rounded-lg shadow-lg max-w-24"
+       
+      />
 </h1>
+
 </Link>
 
 <ul className='flex gap-4'>

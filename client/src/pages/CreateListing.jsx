@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import {getDownloadURL, ref,getStorage, uploadBytesResumable }from 'firebase/storage';
 import {app} from '../firebase';
 import {useSelector} from 'react-redux'; 
+import { useNavigate } from 'react-router-dom';
+
 export default function CreateListing() {
   const { currentUser } = useSelector((state) => state.user);
- // const navigate = navigate();
+  const navigate = useNavigate();
   const [files, setFiles] = useState([]);
   const [formData, setFormData] = useState({
     imageUrls: [],
@@ -139,7 +141,7 @@ const handleSubmit = async (e) => {
     if (data.success === false) {
       setError(data.message);
     }
-    //navigate(`/listing/${data._id}`);
+    navigate(`/showlisting`);
   } catch (error) {
     setError(error.message);
     setLoading(false);
@@ -188,7 +190,7 @@ const handleSubmit = async (e) => {
           />
 
 <br></br>
-<span className=" font-semibold inline-block p-2   uppercase rounded text-red-600 bg-red-200 uppercase last:mr-0 mr-1">
+<span className=" font-semibold inline-block p-2   rounded text-red-600 bg-red-200 uppercase last:mr-0 mr-1">
   Enter your Address:-
 </span>
           <input
@@ -349,7 +351,7 @@ className="w-20 h-20 object-contain p-3 rounded-lg  "/>
             )
           }
           <button onClick={handleSubmit}
-          className="p-3 border mb-20 rounded-lg border-slate-100 rounded uppercase hover:opacity-80  disabled:opacity-80 font-bold text-slate-100 bg-slate-800 shadow-md"
+          className="p-3 border mb-20 rounded-lg border-slate-100 uppercase hover:opacity-80  disabled:opacity-80 font-bold text-slate-100 bg-slate-800 shadow-md"
         >ADD TO LISTING</button>
        {error &&<p className="text-red-800-sm">{error}</p>}
         </div>

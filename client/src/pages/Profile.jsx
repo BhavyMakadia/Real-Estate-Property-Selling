@@ -147,8 +147,8 @@ export default function Profile() {
      //flex flex-col flex-1 gap-4   bg-rounded-xl">
    
    
-   <div className="bg-[url('/src/img/img2.jpg')] h-1/3 w-3/3
-   flex flex-col flex-1 gap-4   bg-rounded-xl  ">
+   <div className="bg-[#90b3b7] 
+   flex flex-col flex-1  bg-center    ">
     <div className="  ">
     <h1 className="text-2xl font-bold text-center my-9  ">Profile</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4 ">

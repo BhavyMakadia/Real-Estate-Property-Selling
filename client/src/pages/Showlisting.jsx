@@ -69,7 +69,7 @@ export default function Showlisting() {
   
   return (
 
-    <div className="bg-[url('/src/img/img2.jpg')] h-1/3 w-3/3
+    <div className="bg-[#AFD4E2] h-1/3 w-3/3
     m-auto  flex flex-col flex-1 gap-4   bg-rounded-xl  ">
    <h1 className='text-2xl font-bold text-center my-9' >Showlisting</h1>
 
@@ -84,7 +84,7 @@ export default function Showlisting() {
           {userListings.map((listing) => (
             <div
               key={listing._id}
-              className='border rounded-lg p-3 flex justify-between items-center gap-4 my-20'
+              className='border rounded-lg p-3 flex justify-between items-center gap-4 my-20 '
             >
               <Link to={`/listing/${listing._id}`}>
                 <img
@@ -107,12 +107,12 @@ export default function Showlisting() {
                 >
                   Delete
                 </button>
-                <Link to={`/update-listing/${listing._id}`}>
+                <Link to={`/editlisting/${listing._id}`}>
                   <button className='text-green-700 uppercase'>Edit</button>
                 </Link>
               </div>
             </div>
-          ))}
+          ))} 
         </div>
       )}
     </div>

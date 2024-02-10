@@ -141,7 +141,7 @@ const handleSubmit = async (e) => {
     if (data.success === false) {
       setError(data.message);
     }
-    navigate(`/showlisting`);
+    navigate(`/listing/${data._id}`);
   } catch (error) {
     setError(error.message);
     setLoading(false);
@@ -204,7 +204,7 @@ const handleSubmit = async (e) => {
           />
           <br></br>
 
-          <span className=" font-semibold inline-block p-2   uppercase rounded text-red-600 bg-red-200 uppercase last:mr-0 mr-1">
+          <span className=" font-semibold inline-block p-2    rounded text-red-600 bg-red-200 uppercase last:mr-0 mr-1">
   Enter below details carefully:-
 </span>
           <div className="flex gap-5 flex-wrap">
@@ -280,7 +280,7 @@ const handleSubmit = async (e) => {
               />
               <div className=' text-orange-500 flex flex-col items-center'>
                 <p>Regular price</p>
-                {formData.type === 'rent' &&(
+                {formData.type === 'rent' && (
                   <span className='text-xs'>($ / month)</span>
                 )}
 

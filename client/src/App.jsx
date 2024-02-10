@@ -13,6 +13,7 @@ import PrivateRoute from './components/PrivateRoute';
 import CreateListing from './pages/CreateListing';
 import Showlisting from './pages/Showlisting';
 import EditList from './pages/EditList';
+import Listing from './pages/Listing';
 
 export default function App() {
   return (
@@ -25,12 +26,13 @@ export default function App() {
         <Route path='/signin' element={<SignIn />}/>
         <Route path='/signup' element={<SignUp />}/>
         <Route path='/search' element={<Search />} />
+        <Route path='/listing/:listingId' element={<Listing/>} />
         <Route element={<PrivateRoute />}>
-        <Route path='/profile' element={<Profile />} />
-        <Route path='/createlisting' element={<CreateListing />} />
-        <Route path='/showlisting' element={<Showlisting />} />
-        <Route path='/editlisting/:listingId' element={<EditList />} />
-        
+                <Route path='/profile' element={<Profile />} />
+                <Route path='/createlisting' element={<CreateListing />} />
+                <Route path='/showlisting' element={<Showlisting />} />
+                <Route path='/editlisting/:listingId' element={<EditList />} />
+                
         </Route>
       </Routes>
       <Footer/>

@@ -145,7 +145,7 @@ const handleSubmit = async (e) => {
    const res = await fetch(`/api/listing/edit/${params.listingId}`, {
       
       method: 'POST',
-      headers: {
+      headers: { 
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -159,7 +159,7 @@ const handleSubmit = async (e) => {
     if (data.success === false) {
       setError(data.message);
     }
-    navigate(`/showlisting/${data._id}`);
+    navigate(`/listing/${data._id}`);
   } catch (error) {
     setError(error.message);
     setLoading(false);
@@ -298,7 +298,7 @@ const handleSubmit = async (e) => {
               />
               <div className=' text-orange-500 flex flex-col items-center'>
                 <p>Regular price</p>
-                {formData.type === 'rent' &&(
+                {formData.type === 'rent' && (
                   <span className='text-xs'>($ / month)</span>
                 )}
 

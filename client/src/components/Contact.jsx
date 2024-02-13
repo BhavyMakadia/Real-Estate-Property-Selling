@@ -35,7 +35,7 @@ useEffect (()=>{
           </p>
           <textarea placeholder='Please Enter your Message' className="bg-gray-300 rounded p-3 " name="message" id="message"  rows="4" value={message} onChange={onClick}></textarea>
 
-          <Link to={`mailto:${landlord.email}?subject=Regarding your property ${listing.name}&body=${message}`}
+          <Link to={`mailto:${landlord.email}?subject=Regarding your property  ${listing.name}&body=${message}`}
           className='bg-slate-700 text-white text-center p-3 uppercase rounded-lg hover:opacity-95'
           >
             Send Message          

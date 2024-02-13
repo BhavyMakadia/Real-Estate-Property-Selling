@@ -100,13 +100,16 @@ export default function Listing() {
             </p>
           )}
           <div className='flex flex-col max-w-4xl mx-auto p-8 my-7 gap-4 border rounded-xl border-gray-300 '>
-            <p className='text-5xl font-semibold border border-gray-300 bg-slate-200 rounded-lg p-4'>
-            <p className='text-pink-700 '> {listing.name} - ${' '} 
-              {listing.offer?listing.discountPrice.toLocaleString('en-US')
-                : listing.regularPrice.toLocaleString('en-US')}
-              {listing.type === 'rent' && ' / month'}
-              </p>
-            </p>
+          
+          <div className='text-5xl font-semibold border border-gray-300 bg-slate-200 rounded-lg p-4'>
+  <p className='text-pink-700 '> {listing.name} - ${' '} 
+    {listing.offer?listing.discountPrice.toLocaleString('en-US')
+      : listing.regularPrice.toLocaleString('en-US')}
+    {listing.type === 'rent' && ' / month'}
+  </p>
+</div>
+
+
             <p className='flex items-center mt-6 gap-2 text-slate-600  text-lg '>
               <FaMapMarkerAlt className='text-blue-700' />
               {listing.address}
@@ -121,7 +124,7 @@ export default function Listing() {
                 </p>
               )}
             </div>
-            <p className='text-slate-800 bg-slate-300 border border-gray-300 rounded-xl p-4'>
+            <p className='text-slate-800 bg-blue-100 border border-gray-300 rounded-xl p-4'>
   <span className='font-semibold text-red-900 text-2xl'>Description - </span>
   <p className='text-xl font-semibold text-slate-500'>{listing.description}</p> 
 </p>
@@ -147,15 +150,7 @@ export default function Listing() {
                 {listing.furnished ? 'Furnished' : 'Unfurnished'}
               </li>
             </ul>
-            <button
-                onClick={() => setContact(true)}
-                className='bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 p-3'
-              >
-                Contact Owner
-              </button>
-             {currentUser && listing.userRef !== currentUser._id && !contact && (
-             <button
-                onClick={() => setContact(true)}
+            {currentUser && listing.userRef !== currentUser._id &&!contact && (<button onClick={() => setContact(true)}
                 className='bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 p-3'
               >
                 Contact Owner

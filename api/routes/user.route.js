@@ -2,10 +2,24 @@ import express from 'express';
 import bcryptjs from 'bcryptjs';
 import User from '../modules/user.model.js';
 import { errorHandler } from '../utils/error.js';
-import { test, deleteUser,getUserListings } from '../controllers/user.controller.js';
+import { test, deleteUser,getUserListings,getListings,deleteUsers } from '../controllers/user.controller.js';
 import { verifyToken } from '../utils/verifyUser.js';
 const router = express.Router();
 router.get('/test',test);
+router.get('/getuser',getListings);
+router.get('/count', async(req,res,next)=>{
+  try {
+
+    const listings = await User.find().count();
+ 
+    return res.status(200).json(listings);
+  
+    
+  } catch (error) {
+    next(error);
+  }
+})
+
 router.post('/update/:id',verifyToken, async (req, res, next) => {
 
   if (req.user.id !== req.params.id) return next(errorHandler(401, 'You can only update your own account!'));
@@ -35,6 +49,7 @@ router.post('/update/:id',verifyToken, async (req, res, next) => {
 })
 
 router.delete('/delete/:id',verifyToken, deleteUser)
+router.delete('/deletes/:id', deleteUsers);
 router.get('/listings/:id',verifyToken, getUserListings)
 router.get('/:id',verifyToken,async (req, res, next) => {
   try {

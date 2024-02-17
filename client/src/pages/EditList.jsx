@@ -601,7 +601,7 @@ export default function CreateListing() {
           />
            <br></br>
 
-<span className=" font-semibold inline-block p-2   uppercase rounded text-red-600 bg-blue-200 uppercase last:mr-0 mr-1">
+<span className=" font-semibold inline-block p-2    rounded text-red-600 bg-blue-200 uppercase last:mr-0 mr-1">
 Enter below details carefully:-
 </span>
           <div className='flex gap-6 flex-wrap'>
@@ -615,7 +615,7 @@ Enter below details carefully:-
               />
               <span>Sell</span>
             </div>
-            <div className='flex gap-2'>
+            {/* <div className='flex gap-2'>
               <input
                 type='checkbox'
                 id='rent'
@@ -624,8 +624,8 @@ Enter below details carefully:-
                 checked={formData.type === 'rent'}
               />
               <span>Rent</span>
-            </div>
-            <div className='flex gap-2'>
+            </div>*/}
+            <div className='flex gap-2'> 
               <input
                 type='checkbox'
                 id='parking'

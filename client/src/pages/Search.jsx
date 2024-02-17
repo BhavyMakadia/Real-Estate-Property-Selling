@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Searchlistitem from '../components/Searchlistitem';
 export default function () {
   const navigate = useNavigate();
   const [sidebardata, setSidebardata] = useState({
@@ -46,6 +47,7 @@ const fetchListings = async () => {
   const searchQuery = urlParams.toString();
   const res = await fetch(`/api/listing/get?${searchQuery}`);
   const data = await res.json();
+  console.log(data);
   if (data.length > 8) {
     setShowMore(true);
   } else {
@@ -60,8 +62,6 @@ fetchListings();
 
   const handleChange = (e) => {
     if (
-     
-      e.target.id === 'rent' ||
       e.target.id === 'sale'
     ) {
       setSidebardata({ ...sidebardata, type: e.target.id });
@@ -107,8 +107,8 @@ fetchListings();
 
   
   return (
-    <div className="bg-[#90b3b7] flex flex-row" >   
-    <div className=' mx-auto '>
+    <div className="bg-[#90b3b7] flex flex-row justify-center  " >   
+    <div className='  mx-60 '>
       <div className='p-7   bg-slate-200 rounded-2xl '>
         <form  className='flex flex-col gap-8' onSubmit={handleSubmit} >
           <div className='flex items-center gap-2'>
@@ -127,19 +127,7 @@ fetchListings();
           <div className='  flex gap-2 flex-wrap items-center'>
             
             <label className='font-semibold'>Type:</label>
-      
-            <div className='flex '>
-              <input
-                type='checkbox'
-                id='rent'
-                className='w-10'
-                onChange={handleChange}
-                checked={sidebardata.type === 'rent'}
-              />
-              <span>Rent</span>
-            </div>
-            <br></br>
-            <div className='flex '>
+        <div className='flex '>
               <input
                 type='checkbox'
                 id='sale'
@@ -205,22 +193,29 @@ fetchListings();
           </button>
         </form>
       </div>
-      <div className='flex-1'>
+      <div className='flex-1 justify-center items-center'>
         <h1 className='text-3xl font-semibold border-b p-3 text-slate-700 mt-5'>
           Listing results:
         </h1>
-        <div className='p-7 flex flex-wrap gap-4'>
+        <div className='p-7 flex flex-wrap gap-4 justify-center '>
+          {! loading && listings.length ===0&&(
+<p className='text-xl text-pink-700'>Search somthing else we do not find this !</p>
+          )
+          }
+      
+      {!loading &&
+            listings &&
+            listings.map((listing) => (
+              <Searchlistitem key={listing._id} list={listing}  />
+            ))}
           
-         
-         
-          
-            <button
+             <button
               
               className='text-green-700 hover:underline p-7 text-center w-full'
             >
               Show more
             </button>
-          
+           
         </div>
       </div>  
       

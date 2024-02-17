@@ -181,7 +181,7 @@ export default function Showlisting() {
   
   return (
     
-    <div className="bg-[#AFD4E2]  mx-auto  bg-rounded-xl">
+    <div className="bg-[rgb(144,179,183)]  mx-auto  bg-rounded-xl">
      
   
       <p className='text-red-600 mt-5'>{showListingsError ? 'Error showing listings' : ''}</p>

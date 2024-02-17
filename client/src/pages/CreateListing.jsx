@@ -176,7 +176,7 @@ export default function CreateListing() {
             value={formData.name}
           />
           <br></br>
-          <span className=" font-semibold inline-block p-2   uppercase rounded text-red-600 bg-red-200 uppercase last:mr-0 mr-1">
+          <span className=" font-semibold inline-block p-2    rounded text-red-600 bg-red-200 uppercase last:mr-0 mr-1">
   Enter your Description:-
 </span>
           <textarea
@@ -216,7 +216,7 @@ export default function CreateListing() {
               />
               <span>Sell</span>
             </div>
-            <div className='flex gap-2  font-bold text-slate-200'>
+            {/* <div className='flex gap-2  font-bold text-slate-200'>
               <input
                 type='checkbox'
                 id='rent'
@@ -225,7 +225,7 @@ export default function CreateListing() {
                 checked={formData.type === 'rent'}
               />
               <span>Rent</span>
-            </div>
+            </div> */}
             <div className='flex gap-2  font-bold text-slate-200'>
               <input
                 type='checkbox'

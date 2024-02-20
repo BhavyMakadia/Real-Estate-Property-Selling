@@ -19,10 +19,17 @@ const userSlice = createSlice({
       state.currentUser = action.payload;
       state.loading = false;
       state.error = null;
+      state.role = action.payload.role || null;
     },
     signInFailure: (state, action) => {
       state.error = action.payload;
       state.loading = false;
+    },
+    setRole: (state, action) => {
+      state.role = action.payload;
+    },
+    clearRole: (state) => {
+      state.role = null;
     },
     updateUserStart: (state) => {
       state.loading = true;
@@ -65,7 +72,8 @@ const userSlice = createSlice({
 
 export const { signInStart,
    signInSuccess, 
-   signInFailure, 
+   signInFailure, setRole,
+   clearRole,
    updateUserStart, 
    updateUserSuccess, updateUserFailure, 
    deleteUserFailure, deleteUserSuccess,deleteUserStart ,

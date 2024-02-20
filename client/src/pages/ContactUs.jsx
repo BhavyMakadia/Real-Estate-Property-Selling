@@ -2,7 +2,7 @@ import React from 'react';
 
 const ContactUs = () => {
   return (
-    <div className="bg-[url('/src/img/img2.jpg')]">
+    <div className="bg-[url('/src/img/img4.jpg')]  bg-no-repeat fixed w-full h-full  left-0">
       <div className='py-20 px-4 max-w-6xl mx-auto'>
         <h1 className='text-4xl font-bold mb-4 text-slate-800'>Contact Us</h1>
         <p className='mb-4 text-lg text-slate-700'>

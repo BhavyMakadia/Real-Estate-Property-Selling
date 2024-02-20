@@ -2,7 +2,8 @@ import React from 'react'
 
 export default function About() {
   return (
-    <div className="bg-[url('/src/img/img3.jpg')]"> <div className='py-20 px-4 max-w-6xl mx-auto'>
+    <div className="bg-[url('/src/img/img3.jpg')] bg-no-repeat fixed w-full h-full  left-0"> 
+      <div className='py-20 px-4 max-w-6xl mx-auto'>
     <h1 className='text-3xl font-bold mb-4 text-slate-800'>About Bhavy Estate</h1>
     <p className='mb-4 text-slate-700'>
       Bhavy Estate is a premier real estate agency specializing in assisting clients in buying, selling, and renting properties in the most sought-after neighborhoods. Our team of seasoned agents is dedicated to providing exceptional service, ensuring a seamless experience throughout the buying and selling process.

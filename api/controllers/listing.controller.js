@@ -159,3 +159,23 @@ export const deleteListing = async (req, res, next) => {
       next(error);
     }
   }
+
+
+  export const updateListing = async (req, res) => {
+    try {
+      const { id } = req.params;
+      const updatedData = req.body;
+  
+      
+      const updatedListing = await Listing.findByIdAndUpdate(id, updatedData, { new: true });
+  
+      if (!updatedListing) {
+        return res.status(404).json({ success: false, message: 'Listing not found' });
+      }
+  
+      return res.json({ success: true, data: updatedListing });
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+  };

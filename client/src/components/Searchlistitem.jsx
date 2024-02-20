@@ -4,7 +4,7 @@ import { CiLocationArrow1 } from "react-icons/ci";
 
 export default function Searchlistitem({list}) {
   return (
-    <div className=' bg-sky-600 hover:bg-violet-500 shadow-md  transition-shadow overflow-hidden rounded-xl w-full  sm:w-[330px]'>
+    <div className=' bg-red-500 hover:bg-sky-500 shadow-md  transition-shadow overflow-hidden rounded-xl w-full  sm:w-[330px]'>
     <Link to={`/listing/${list._id}`}>
       <img
         src={
@@ -17,7 +17,7 @@ export default function Searchlistitem({list}) {
         <p className='  text-lg font-semibold text-white'>
           {list.name}
         </p>
-        <div className='flex items-center gap-1'>
+        <div className='flex items-center gap -1'>
           <CiLocationArrow1 className='h-4 w-4 text-red-700' />
           <p className='text-sm text-gray-100   w-full'>
             {list.address}

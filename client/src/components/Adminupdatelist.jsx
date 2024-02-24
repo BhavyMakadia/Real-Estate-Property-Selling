@@ -36,7 +36,7 @@ export default function Adminupdatelist() {
   useEffect(() => {
     const fetchListing = async () => {
       const listingId = params.listingId;
-      const res = await fetch(`/api/listing/get/${listingId}`);
+      const res = await fetch(`/backend/listing/get/${listingId}`);
       const data = await res.json();
       console.log(data);
       if (data.success === false) {
@@ -145,8 +145,8 @@ export default function Adminupdatelist() {
   
 
 
-      // Send POST request to backend API
-      const res = await fetch(`/api/listing/edits/${params.listingId}`, {
+      // Send POST request to backend backend
+      const res = await fetch(`/backend/listing/edits/${params.listingId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

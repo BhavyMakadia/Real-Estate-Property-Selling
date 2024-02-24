@@ -34,10 +34,10 @@ export default function Header() {
             placeholder="Search.."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="bg-transpert focus:outline-none w-64 sm:w-64"
+            className=" focus:outline-none w-64 sm:w-64"
           />
           <button>
-            <FaSearch className="text-slate-600" />
+            <FaSearch className="text-slate-900" />
           </button>
         </form>
 

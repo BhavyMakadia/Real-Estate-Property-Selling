@@ -21,7 +21,7 @@ export default function AdminEditlist() {
 
   const handleshowListings = async () => {
     try {
-      const res = await fetch('/api/listing/get');
+      const res = await fetch('/backend/listing/get');
       const data = await res.json();
            
 
@@ -33,7 +33,7 @@ export default function AdminEditlist() {
 
   const handleListingDelete = async (listingId) => {
     try {
-      const res = await fetch(`/api/listing/deletes/${listingId}`, {
+      const res = await fetch(`/backend/listing/deletes/${listingId}`, {
         method: 'DELETE',
       });
       const data = await res.json();
@@ -56,7 +56,7 @@ export default function AdminEditlist() {
   
   return (
     
-    <div className="bg-blue-200  mx-auto  bg-rounded-xl text-center content-center pl-64">
+    <div className="bg-gradient-to-r from-blue-500 via-blue-300 to-yellow-500  mx-auto  bg-rounded-xl text-center content-center pl-64">
      
   
    
@@ -64,7 +64,7 @@ export default function AdminEditlist() {
   <p className='text-red-600 mt-5 p-1'>Error showing listings</p>
 )}
 {userListings && userListings.length > 0 && (
-  <div className='flex flex-col mx-40 pb-12'>
+  <div className='flex flex-col mx-40 pb-12  '>
     <h1 className='text-center  text-2xl p-5 font-semibold'>Your Listings</h1>
     <div className=" relative overflow-x-auto  sm:rounded-lg">
       <table className="w-full text-sm text-left   ">
@@ -92,7 +92,7 @@ export default function AdminEditlist() {
         </thead>
         <tbody>
           {userListings.map((listing) => (
-            <tr key={listing._id} className=" border bg-slate-200 ">
+            <tr key={listing._id} className="  bg-gradient-to-r from-orange-200 to-cyan-200 ">
               
               <td className="px-6 py-4 font-medium  whitespace-nowrap text-blue-900">{listing.name}</td>
               <td className="px-6 py-4">{listing.description}</td>

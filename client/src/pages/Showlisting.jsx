@@ -35,7 +35,7 @@ export default function Showlisting() {
   const handleshowListings = async () => {
     try {
       setShowListingsError(false);
-      const res = await fetch(`/api/user/listings/${currentUser._id}`);
+      const res = await fetch(`/backend/user/listings/${currentUser._id}`);
       const data = await res.json();
       if (data.success === false) {
         setShowListingsError(true);
@@ -50,7 +50,7 @@ export default function Showlisting() {
 
   const handleListingDelete = async (listingId) => {
     try {
-      const res = await fetch(`/api/listing/delete/${listingId}`, {
+      const res = await fetch(`/backend/listing/delete/${listingId}`, {
         method: 'DELETE',
       });
       const data = await res.json();
@@ -143,7 +143,7 @@ export default function Showlisting() {
   const handleshowListings = async () => {
     try {
       setShowListingsError(false);
-      const res = await fetch(`/api/user/listings/${currentUser._id}`);
+      const res = await fetch(`/backend/user/listings/${currentUser._id}`);
       const data = await res.json();
       if (data.success === false) {
         setShowListingsError(true);
@@ -158,7 +158,7 @@ export default function Showlisting() {
 
   const handleListingDelete = async (listingId) => {
     try {
-      const res = await fetch(`/api/listing/delete/${listingId}`, {
+      const res = await fetch(`/backend/listing/delete/${listingId}`, {
         method: 'DELETE',
       });
       const data = await res.json();
@@ -177,7 +177,7 @@ export default function Showlisting() {
 
   useEffect(() => {
     handleshowListings();
-  }, []); // Empty array && it is  effect runs only once when component mount
+  }, []);//  Empty array && it is  effect runs only once when component mount
   
   return (
     

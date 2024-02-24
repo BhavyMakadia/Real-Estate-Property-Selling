@@ -45,7 +45,7 @@ const fetchListings = async () => {
   setLoading(true);
   setShowMore(false);
   const searchQuery = urlParams.toString();
-  const res = await fetch(`/api/listing/get?${searchQuery}`);
+  const res = await fetch(`/backend/listing/get?${searchQuery}`);
   const data = await res.json();
   console.log(data);
   if (data.length > 8) {
@@ -60,7 +60,7 @@ const fetchListings = async () => {
 fetchListings();
 }, [location.search]);
 
-  const handleChange = (e) => {
+  /*const handleChange = (e) => {
     if (
       e.target.id === 'sale'
     ) {
@@ -90,7 +90,41 @@ fetchListings();
       setSidebardata({ ...sidebardata, sort, order });
     }
 
+  };*/
+  const handleChange = async (e) => {
+    if (e.target.id === 'sale') {
+      setSidebardata({ ...sidebardata, type: e.target.id });
+    }
+    if (e.target.id === 'searchTerm') {
+      const searchTerm = e.target.value;
+      setSidebardata({ ...sidebardata, searchTerm });
+  
+      // Fetch data based on search term
+      try {
+        const urlParams = new URLSearchParams(location.search);
+        urlParams.set('searchTerm', searchTerm);
+        const searchQuery = urlParams.toString();
+        const res = await fetch(`/backend/listing/get?${searchQuery}`);
+        const data = await res.json();
+        setListings(data);
+      } catch (error) {
+        console.error('Error fetching listings:', error);
+      }
+    }
+  
+    if (e.target.id === 'parking' || e.target.id === 'furnished' || e.target.id === 'offer') {
+      setSidebardata({
+        ...sidebardata,
+        [e.target.id]: e.target.checked,
+      });
+    }
+  
+    if (e.target.id === 'sort_order') {
+      const [sort, order] = e.target.value.split('_');
+      setSidebardata({ ...sidebardata, sort: sort || 'created_at', order: order || 'desc' });
+    }
   };
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     const urlParams = new URLSearchParams();

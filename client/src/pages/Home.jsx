@@ -18,7 +18,7 @@ export default function Home() {
   useEffect(() => {
     const fetchOfferListings = async () => {
       try {
-        const res = await fetch("/api/listing/get?offer=true&limit=3");
+        const res = await fetch("/backend/listing/get?offer=true&limit=3");
         const data = await res.json();
         setOfferListings(data);
         fetchSaleListings();
@@ -29,7 +29,7 @@ export default function Home() {
 
     const fetchSaleListings = async () => {
       try {
-        const res = await fetch("/api/listing/get?type=sale&limit=3");
+        const res = await fetch("/backend/listing/get?type=sale&limit=3");
         const data = await res.json();
         console.log(data);
         setSaleListings(data);
@@ -41,12 +41,13 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
-      <Swiper navigation autoplay={{ delay: 3000 }}>
+    <div className=" 
+    ">
+      <Swiper navigation >
         {offerListings &&
           offerListings.length > 0 &&
           offerListings.map((listing) => (
-            <SwiperSlide>
+            <SwiperSlide key={listing._id}>
               <div
                 style={{
                   background: `url(${listing.imageUrls[0]}) center  no-repeat`,
@@ -97,9 +98,10 @@ export default function Home() {
               </Link>
             </div>
             <div className="flex flex-wrap gap-4">
-              {offerListings.map((listing) => (
-                <Searchlistitem list={listing} key={`offer_${listing._id}`} />
-              ))}
+            {offerListings.map((listing) => (
+  <Searchlistitem list={listing} key={`offer_${listing._id}`} />
+))}
+
             </div>
           </div>
         )}
@@ -118,9 +120,10 @@ export default function Home() {
               </Link>
             </div>
             <div className="flex flex-wrap gap-4">
-              {saleListings.map((listing) => (
-                <ListingItem list={listing} key={`sale_${listing._id}`} />
-              ))}
+            {saleListings.map((listing) => (
+  <Searchlistitem list={listing} key={`sale_${listing._id}`} />
+))}
+
             </div>
           </div>
         )}

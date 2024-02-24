@@ -1,10 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  signInStart,
-  signInFailure,
-  signInSuccess,
-} from "../redux/user/userSlice";
+ import {
+   signInStart,
+   signInFailure,
+   signInSuccess,
+ } from "../redux/user/userSlice";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import OAuth from "../components/OAuth";
@@ -23,8 +23,8 @@ export default function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      //dispatch(signInStart());
-      const res = await fetch("/api/auth/signin", {
+      dispatch(signInStart());
+      const res = await fetch("/backend/auth/signin", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -57,7 +57,7 @@ export default function SignIn() {
           <div className="flex h-full flex-wrap items-center justify-center lg:justify-between">
             <div className="shrink-1 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
               <img
-                src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                src="https:tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
                 className="w-full"
                 alt="Sample image"
               />

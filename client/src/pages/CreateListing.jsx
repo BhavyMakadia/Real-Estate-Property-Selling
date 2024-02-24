@@ -132,7 +132,7 @@ export default function CreateListing() {
         return setError('Discount price must be lower than regular price');
       setLoading(true);
       setError(false);
-      const res = await fetch('/api/listing/create', {
+      const res = await fetch('/backend/listing/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -499,7 +499,7 @@ const handleSubmit = async (e) => {
     setLoading(true);
     setError(false);
    
-   const res = await fetch('/api/listing/create', {
+   const res = await fetch('/backend/listing/create', {
       
       method: 'POST',
       headers: {

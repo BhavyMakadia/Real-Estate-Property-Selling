@@ -25,6 +25,7 @@ import Adminupdatelist from './components/Adminupdatelist';
 
 import AdminProfile from './components/AdminProfile';
 
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -42,7 +43,7 @@ function AppContent() {
   
   return (
     <>
-      {!isAdminRoute && <Header />}
+      {!isAdminRoute && <Header /> }
       {isAdminRoute && <AdminLayout />}
       
       <Routes>

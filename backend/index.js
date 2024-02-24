@@ -29,9 +29,9 @@ app.use(cookieParser());
   });
 
   
-app.use('/api/user', userRouter);
-app.use('/api/auth', authRouter);
-app.use('/api/listing', listingRouter);
+app.use('/backend/user', userRouter);
+app.use('/backend/auth', authRouter);
+app.use('/backend/listing', listingRouter);
 
 app.use((err,req,res,next)=>{
   const statusCode =err.statusCode || 500;

@@ -2,16 +2,16 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useRef, useState, useEffect } from "react";
 
-import {
-  updateUserStart,
-  updateUserSuccess,
-  updateUserFailure,
-  deleteUserFailure,
-  deleteUserStart,
-  deleteUserSuccess,
-  signInFailure,
-  signOutUserStart,
-} from "../redux/user/userSlice";
+ import {
+   updateUserStart,
+   updateUserSuccess,
+   updateUserFailure,
+   deleteUserFailure,
+   deleteUserStart,
+   deleteUserSuccess,
+   signInFailure,
+   signOutUserStart,
+ } from "../redux/user/userSlice";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { Navigate } from "react-router-dom";
@@ -45,8 +45,8 @@ export default function AdminProfile() {
       handleFileUpload(file);
     }
   }, [file]);
-  // console.log(file);
-  //console.log(filePerc);
+   console.log(file);
+  console.log(filePerc);
   const handleFileUpload = (file) => {
     const storage = getStorage(app);
     const fileName = new Date().getTime() + file.name;
@@ -78,7 +78,7 @@ export default function AdminProfile() {
     try {
       dispatch(updateUserStart());
 
-      const res = await fetch(`api/user/update/${currentUser._id}`, {
+      const res = await fetch(`backend/user/update/${currentUser._id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -102,7 +102,7 @@ export default function AdminProfile() {
   const handleDeleteUser = async () => {
     try {
       dispatch(deleteUserStart());
-      const res = await fetch(`/api/user/delete/${currentUser._id}`, {
+      const res = await fetch(`/backend/user/delete/${currentUser._id}`, {
         method: "DELETE",
       });
       const data = await res.json();
@@ -120,7 +120,7 @@ export default function AdminProfile() {
     console.log("signout");
     try {
       dispatch(signOutUserStart());
-      const res = await fetch("/api/auth/signout");
+      const res = await fetch("/backend/auth/signout");
       const data = await res.json();
       if (data.success === false) {
         dispatch(deleteUserFailure(data.message));
@@ -135,26 +135,26 @@ export default function AdminProfile() {
   };
 
   return (
-    <section className=" pl-64 gradient-form h-full bg-neutral-200 flex  rounded-5xl">
-      <div className="container h-full ">
+    <section className=" pl-64 gradient-form h-full   flex  rounded-5xl pb-2">
+      <div className="container h-full bg-gradient-to-r from-blue-500 via-blue-300 to-cyan-100 ">
         <div className="g-6 flex h-full flex-wrap items-center justify-center text-cyan-800 dark:text-neutral-200">
           <div className="w-full">
-            <div className="block rounded-lg bg-white shadow-lg dark:bg-blue-100">
-              <div className="g-0 lg:flex lg:flex-wrap">
+            <div className="block  bg-gradient-to-r from-orange-400 to-green-300 shadow-lg ">
+              <div className="g-0 lg:flex lg:flex-wrap ">
                 <div className="px-4 md:px-0 lg:w-6/12">
-                  <div className="md:mx-6 md:p-12">
-                    <div className="text-center">
+                  <div className="md:mx-4 md:p-8">
+                    {/* <div className="text-center">
                       <img
-                        className="mx-auto w-40"
+                        className="mx-auto w-20"
                         src="./src/img/logo1.jpg"
                         alt="logo"
                       />
-                      <h4 className=" mt-1 pb-1 text-xl font-semibold text-sky-600">
-                        We are for Property
-                      </h4>
+                      <h4 className="text-xl font-semibold text-gradient-to-r from-blue-500 via-blue-300 to-cyan-100 ">
+                        We are best Property
+                      </h4> */}
                       <div className=" flex flex-col mx-auto bg-center">
-                        <div className="  ">
-                          <div className="flex justify-center items-center rounded-3xl mx-auto pt-12 pb-10 ">
+                        <div className="   ">
+                          <div className="flex justify-center items-center rounded-3xl mx-auto pt-2 pb-10 ">
                             <div className="bg-blue-100 overflow-hidden shadow rounded-lg border">
                               <div className="px-2 py-2 sm:px-6">
                                 <h3 className="text-lg leading-6 font-medium text-gray-900">
@@ -165,7 +165,7 @@ export default function AdminProfile() {
                                   you do some changes
                                 </p>
                               </div>
-                              <div className="border-t border-gray-200 px-4 py-1 sm:p-0">
+                              <div className="border-t border-gray-200 px-3 py-1 sm:p-0">
                                 <form
                                   onSubmit={handleSubmit}
                                   className="flex flex-col gap-3 mx-auto"
@@ -181,7 +181,7 @@ export default function AdminProfile() {
                                     onClick={() => fileRef.current.click()}
                                     src={formData.avatar || currentUser.avatar}
                                     alt="profile"
-                                    className="rounded-full h-32 w-32 object-cover cursor-pointer self-center mt-4"
+                                    className="rounded-full h-20 w-20 object-cover cursor-pointer self-center mt-4"
                                   />
                                   <p className="text-base self-center">
                                     {fileUploadError ? (
@@ -202,7 +202,7 @@ export default function AdminProfile() {
                                   <div className=" mx-auto">
                                     <label
                                       for="username"
-                                      className="text-lg  text-blue-500
+                                      className="  text-blue-500
                    font-semibold"
                                     >
                                       Username:
@@ -213,13 +213,13 @@ export default function AdminProfile() {
                                       defaultValue={currentUser.username}
                                       placeholder="Username"
                                       id="username"
-                                      className="border p-4 rounded-lg"
+                                      className="border p-3 rounded-lg"
                                     />
                                   </div>
                                   <div className="mx-auto ">
                                     <label
                                       for="password"
-                                      className="text-lg text-blue-500 mx-auto font-semibold"
+                                      className=" text-blue-500 mx-auto font-semibold"
                                     >
                                       Password:
                                     </label>
@@ -228,13 +228,13 @@ export default function AdminProfile() {
                                       placeholder="Password"
                                       id="password"
                                       onChange={handleChange}
-                                      className="border p-4 rounded-lg"
+                                      className="border p-3 rounded-lg"
                                     />
                                   </div>
                                   <div className="mx-auto ">
                                     <label
                                       for="email"
-                                      className="text-lg text-blue-500 mx-auto font-semibold"
+                                      className=" text-blue-500 mx-auto font-semibold"
                                     >
                                       Email:
                                     </label>
@@ -244,7 +244,7 @@ export default function AdminProfile() {
                                       defaultValue={currentUser.email}
                                       id="email"
                                       onChange={handleChange}
-                                      className="border p-4 rounded-lg"
+                                      className="border p-3 rounded-lg"
                                     />
                                   </div>
                                   <button className="bg-slate-700 text-white mx-auto rounded-lg p-5 uppercase hover:opacity-70 disabled:opacity-70">
@@ -260,21 +260,21 @@ export default function AdminProfile() {
                                   </p>
 
                                   <div className="flex gap-5 content-center mx-auto">
-                                    <span
+                                    {/* <span
                                       onClick={handleSignOut}
                                       className="text-blue-600  text-lg font-bold cursor-pointer"
                                     >
                                       Sign Out
-                                    </span>
+                                    </span> 
                                     <span
                                       onClick={handleDeleteUser}
                                       className="text-red-600 text-lg font-bold cursor-pointer"
                                     >
                                       Delete Admin{" "}
-                                    </span>
+                                    </span>*/}
                                   </div>
                                 </form>
-                              </div>
+                              {/* </div> */}
                             </div>
                           </div>
                         </div>
@@ -283,7 +283,7 @@ export default function AdminProfile() {
                   </div>
                 </div>
                 <div className="flex items-center rounded-b-lg lg:w-6/12 lg:rounded-r-lg lg:rounded-bl-none bg-gradient-to-r from-purple-500 via-red-600 to-yellow-700">
-                  <div className="px-4 py-6 text-white md:mx-6 md:p-12 bg-gradient-to-r from-purple-500 via-red-600 to-yellow-500 rounded-2xl">
+                  <div className="px-4 py-6 text-white md:mx-6 md:p-12 bg-gradient-to-r from-purple-500 via-red-600 to-yellow-200 rounded-2xl">
                     <h4 className="mb-6 text-3xl font-semibold">
                       Welcome to Bhavy Estate
                     </h4>

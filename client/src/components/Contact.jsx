@@ -11,7 +11,7 @@ const onClick=(e)=>{
 useEffect (()=>{
   const fetchLandlord = async () => {
     try {
-      const res = await fetch(`/api/user/${listing.userRef}`);
+      const res = await fetch(`/backend/user/${listing.userRef}`);
       const data = await res.json();
       setLandlord(data);
    

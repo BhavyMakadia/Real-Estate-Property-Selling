@@ -12,7 +12,7 @@ export default function AdminUser() {
 
   const handleshowListings = async () => {
     try {
-      const res = await fetch('/api/user/getuser');
+      const res = await fetch('/backend/user/getuser');
       const data = await res.json();
       setUserListings(data);
     } catch (error) {
@@ -23,8 +23,8 @@ export default function AdminUser() {
 
   const handleDeleteUser = async (userId) => {
     try {
-      dispatch(deleteUserStart());
-      const res = await fetch(`/api/user/deletes/${userId}`, {
+     dispatch(deleteUserStart());
+      const res = await fetch(`/backend/user/deletes/${userId}`, {
         method: 'DELETE',
       });
 
@@ -34,7 +34,7 @@ export default function AdminUser() {
         dispatch(deleteUserFailure(data.message)); // Dispatch failure action
         return;
       }
-      dispatch(deleteUserSuccess(data)); // Dispatch success action
+    dispatch(deleteUserSuccess(data)); // Dispatch success action
       window.location.replace("/admin"); // Redirect to homepage after successful deletion
     } catch (error) {
       console.error('Error deleting user:', error);
@@ -47,7 +47,7 @@ export default function AdminUser() {
   }, []);
 
   return (
-    <div className="pl-64 bg-slate-300">
+    <div className="pl-64 bg-gradient-to-r from-blue-500 via-blue-300 to-cyan-100   ">
     <div className='flex flex-col mx-40'>
     <h1 className='text-center  text-2xl p-5 font-semibold'>Your Listings</h1>
     <div className="flex flex-col py-16">
@@ -65,7 +65,7 @@ export default function AdminUser() {
                 </thead>
                 <tbody className="  border rounded-3xl ">
                   {userListings.map((listing) => (
-                    <tr key={listing._id} className="border bg-slate-200">
+                    <tr key={listing._id} className="  bg-gradient-to-r from-orange-200 to-cyan-200 ">
                       <td className="px-6 py-4 whitespace-nowrap">
                         <Link to={`/listing/${listing._id}`}>
                           <img src={listing.avatar} alt='listing cover' className='h-16 w-16 object-contain' />

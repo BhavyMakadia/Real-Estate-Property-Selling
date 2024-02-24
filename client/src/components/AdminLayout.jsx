@@ -1,36 +1,83 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
+import { useRef, useState, useEffect } from "react";
+
+ import {
+   updateUserStart,
+   updateUserSuccess,
+   updateUserFailure,
+   deleteUserFailure,
+   deleteUserStart,
+   deleteUserSuccess,
+   signInFailure,
+   signOutUserStart,
+ } from "../redux/user/userSlice";
+import { useDispatch } from "react-redux";
 export default function AdminLayout() {
   const { currentUser } = useSelector((state) => state.user);
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
+  const fileRef = useRef(null);
+  const [formData, setFormData] = useState({});
+  const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const urlParams = new URLSearchParams(window.location.search);
-    urlParams.set("searchTerm", searchTerm);
-    const searchQuery = urlParams.toString();
-    navigate(`/search?${searchQuery}`);
-  };
+
+  const [updateSuccess, setUpdateSuccess] = useState(false);
 
   
+
+  const handleSignOut = async () => {
+    console.log("signout");
+    try {
+      dispatch(signOutUserStart());
+      const res = await fetch("/backend/auth/signout");
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(deleteUserFailure(data.message));
+        return;
+      }
+      dispatch(deleteUserSuccess(data));
+
+      window.location.replace("/signin");
+    } catch (error) {
+      dispatch(deleteUserFailure(error.message));
+    }
+  };
+
+  const handleDeleteUser = async () => {
+    try {
+      dispatch(deleteUserStart());
+      const res = await fetch(`/backend/user/delete/${currentUser._id}`, {
+        method: "DELETE",
+      });
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(deleteUserFailure(data.message));
+        return;
+      }
+      dispatch(deleteUserSuccess(data));
+      window.location.replace("/");
+    } catch (error) {
+      dispatch(deleteUserFailure(error.message));
+    }
+  };
 
   return (
     <div className='pl-64'>
       {/* AdminHeader */}
-      <header className="bg-[#3e797f] ">
+      <header className="bg-gradient-to-r from-orange-400 to-green-200 ">
         <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
         
           <Link to="/admin">
             <h1 className="font-bold text-sm sm:text-xl  flex-wrap flex items-center gap-2">
-              <img
+              {/* <img
                 src="/src/img/logo.png"
                 alt="Your Image Description"
                 className="mx-auto  rounded-lg shadow-lg max-w-28"
-              />
+              /> */}
             </h1>
           </Link>
 
@@ -66,7 +113,7 @@ export default function AdminLayout() {
           <Link to="/admin">
           <h1 className="font-bold text-sm sm:text-xl  flex-wrap flex items-center gap-2">
             <img
-              src="/src/img/logo1.jpg"
+              src="/src/img/logo.jpg"
               alt="Your Image Description"
               className="mx-auto  rounded-lg shadow-lg max-w-28"
             />
@@ -91,8 +138,31 @@ export default function AdminLayout() {
   <span className="flex-1 ms-3 whitespace-nowrap">Listed property</span>
 </Link>
          </li>
-        
-           
+         <li>
+         <Link  className="flex items-center p-2 text-blue-700 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+  
+         <span className="flex-1 ms-3 whitespace-nowrap"
+                                      onClick={handleSignOut}
+                                      
+                                    >
+                                      Sign Out
+                                    </span>
+</Link>
+         </li>
+         <li>
+         <Link  className="flex items-center p-2 text-blue-700 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+  
+         <span className="flex-1 ms-3 whitespace-nowrap"
+                                      onClick={handleDeleteUser}
+                                     
+                                    >
+                                      Delete Admin
+                                    </span>
+</Link>
+         </li>
+         <li>
+         
+         </li>
         
           </ul>
         </div>

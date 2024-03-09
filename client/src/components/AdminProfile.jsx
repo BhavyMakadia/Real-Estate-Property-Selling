@@ -78,7 +78,7 @@ export default function AdminProfile() {
     try {
       dispatch(updateUserStart());
 
-      const res = await fetch(`backend/user/update/${currentUser._id}`, {
+      const res = await fetch(`/backend/user/update/${currentUser._id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

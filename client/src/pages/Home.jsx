@@ -41,23 +41,29 @@ export default function Home() {
   }, []);
 
   return (
-    <div className=" 
-    ">
-      <Swiper navigation >
-        {offerListings &&
-          offerListings.length > 0 &&
-          offerListings.map((listing) => (
+    <div className=" ">
+    
+        <Swiper
+        navigation
+        autoplay={{ delay: 3000 }} 
+      >
+        
+        {saleListings &&
+          saleListings.length > 0 &&
+          saleListings.map((listing) => (
             <SwiperSlide key={listing._id}>
               <div
                 style={{
-                  background: `url(${listing.imageUrls[0]}) center  no-repeat`,
-                  //backgroundSize: 'cover',
+                  background: `url(${listing.imageUrls[0]}) center no-repeat`,
+                  //backgroundSize: "cover",
+                
                 }}
                 className="h-[500px]"
               ></div>
             </SwiperSlide>
           ))}
-      </Swiper>
+      </Swiper> 
+     
       <div className="bg-[url('/src/img/bg2.png')] bg-cover h-screen">
         <div className="  flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto">
           <div className="m-20">

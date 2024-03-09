@@ -155,7 +155,7 @@ export default function CreateListing() {
   };
   return (
     <main className='p-3 max-w-4xl mx-auto'>
-      <h1 className='text-2xl font-bold text-center my-9'>
+      <h1 className=' text-green-200 text-2xl font-bold text-center my-9'>
         Create a Listing
       </h1>
       <form onSubmit={handleSubmit}
@@ -363,7 +363,7 @@ export default function CreateListing() {
             ))}
           <button
             disabled={loading || uploading}
-            className='p-3 border mb-20 rounded-lg border-slate-100 uppercase hover:opacity-80  disabled:opacity-80 font-bold text-slate-100 bg-slate-800 shadow-md'
+            className='p-3 border mb-20 rounded-lg border-slate-100 uppercase hover:opacity-80  disabled:opacity-80 font-bold text-blue-900 bg-blue-500 shadow-md'
           >ADD TO LISTING
            
           </button>

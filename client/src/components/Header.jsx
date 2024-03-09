@@ -25,21 +25,7 @@ export default function Header() {
   return (
     <header className="bg-[#90b3b7] ">
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
-        <form
-          onSubmit={handleSubmit}
-          className="bg-slate-100 p-1 rounded-lg flex items-center"
-        >
-          <input
-            type="text"
-            placeholder="Search.."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className=" focus:outline-none w-64 sm:w-64"
-          />
-          <button>
-            <FaSearch className="text-slate-900" />
-          </button>
-        </form>
+    
 
         <Link to="/">
           <h1 className="font-bold text-sm sm:text-xl  flex-wrap flex items-center gap-2">
@@ -51,21 +37,43 @@ export default function Header() {
           </h1>
         </Link>
 
-        <ul className="flex gap-4 text-sm sm:text-xl ">
+        <ul className="flex gap-1 text-sm sm:text-xl ">
           <Link to="/">
-            <li className="hidden sm:inline text-slate-100 hover:text-slate-500 font-bold  rounded ">
+            <li className="hidden sm:inline text-slate-100 hover:text-orange-200  font-bold  rounded ">
               Home
             </li>
           </Link>
+         
           <Link to="/About">
-            <li className="hidden sm:inline text-slate-100 hover:text-slate-500 font-bold  rounded ">
+            {currentUser ? (
+              
+              
+              <li className="hidden sm:inline text-slate-100 hover:text-slate-500 font-bold  rounded">
+                {" "}
+                
+              </li>
+            ) : (
+              <a href="/About" className=" text-white hover:text-orange-200 font-bold p-3  hover:opacity-70 disabled:opacity-70 rounded-full  object-cover">
               About
-            </li>
+          </a>
+            )}
           </Link>
-          {/* <Link to='/SignIn'>
-    <li className='hidden sm:inline text-slate-100 hover:text-slate-500 font-bold  rounded '>SignIn</li>
-  </Link> 
-   */}
+         
+
+<Link to="/showlisting">
+            {currentUser ? (
+              <a href="/showlisting" className=" text-white hover:text-orange-200 font-bold p-3  hover:opacity-70 disabled:opacity-70 rounded-full  object-cover">
+              Show Listing
+          </a>
+              
+              
+            ) : (
+              <li className="hidden sm:inline text-slate-100 hover:text-slate-500 font-bold  rounded">
+                {" "}
+                
+              </li>
+            )}
+          </Link>
           <Link to="/Profile">
             {currentUser ? (
               <img
@@ -73,14 +81,36 @@ export default function Header() {
                 src={currentUser.avatar}
                 alt="profile"
               />
+              
+              
             ) : (
-              <li className="hidden sm:inline text-slate-100 hover:text-slate-500 font-bold  rounded">
+              <li className="hidden sm:inline text-slate-100 hover:text-orange-200  font-bold  rounded">
                 {" "}
                 Sign in
               </li>
             )}
           </Link>
+
+         
+          
+
+         
         </ul>
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white p-3 rounded-lg flex items-center"
+        >
+          <input
+            type="text"
+            placeholder="Search.."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className=" focus:outline-none w-64 sm:w-64"
+          />
+          {/* <button>
+            <FaSearch className="text-slate-900" />
+          </button> */}
+        </form>
       </div>
     </header>
   );

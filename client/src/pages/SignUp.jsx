@@ -43,11 +43,11 @@ export default function SignUp() {
   };
 
   return (
-    <section className="gradient-form bg-neutral-200 flex  items-center justify-around ">
+    <section className="  gradient-form  flex  items-center justify-around ">
       <div className="container h-full ">
         <div className="g-3 flex  flex-wrap items-center justify-center text-cyan-800 dark:text-neutral-200">
           <div className="w-full">
-            <div className="block rounded-lg bg-white shadow-lg dark:bg-neutral-600">
+            <div className="block rounded-lg  shadow-lg dark:bg-neutral-600">
               <div className="g-0 lg:flex lg:flex-wrap">
                 <div className="px-3 pb-10 md:px-0 lg:w-6/12">
                   <div className="md:mx-6 md:p-12">
@@ -57,10 +57,10 @@ export default function SignUp() {
                         src="./src/img/logo1.jpg"
                         alt="logo"
                       />
-                      <h4 className=" mt-1 pb-1 text-xl font-semibold">
+                      <h4 className=" mt-1 pb-1 text-xl font-semibold text-orange-100">
                         We are for Property
                       </h4>
-                      <div className="pl-2  max-w-lg mx-auto">
+                      <div className="pl-2  max-w-lg mx-auto text-red-100">
                         <h1 className="text-3xl text-center font-semibold my-7">
                           Hello,First We Sign Up
                         </h1>
@@ -91,7 +91,7 @@ export default function SignUp() {
                             onChange={handleChange}
                           />
                           <button
-                            className="bg-slate-700 text-white size-35px p-3  rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
+                            className="bg-blue-500 text-white size-35px p-3  rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
                             style={{ fontSize: "20px" }}
                           >
                             Sign up
@@ -101,7 +101,7 @@ export default function SignUp() {
                         <div className="flex gap-2 mt-5">
                           <p>Have an account?</p>
                           <Link to={"/signin"}>
-                            <span className="text-blue-700">Sign in</span>
+                            <span className="text-blue-100">Sign in</span>
                           </Link>
                         </div>
                         {error && <p className="text-red-500 mt-5">{error}</p>}

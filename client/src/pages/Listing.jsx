@@ -53,13 +53,13 @@ export default function Listing() {
   }, [params.listingId]);
   console.log(loading);
   return (
-    <main className="bg-[#90b3b7]">
+    <main className="">
       {loading && <p className="text-center my-7 text-2xl">Loading...</p>}
       {error && (
         <p className="text-center my-7 text-2xl">There is some error </p>
       )}
       {listing && !loading && !error && (
-        <div>
+        <div className="pb-2">
           <Swiper navigation>
             {listing.imageUrls.map((url) => (
               <SwiperSlide key={url}>
@@ -104,7 +104,7 @@ export default function Listing() {
               </p>
             </div>
 
-            <p className="flex items-center mt-6 gap-2 text-slate-600  text-lg ">
+            <p className="flex items-center mt-6 gap-2 text-pink-100  text-lg ">
               <FaMapMarkerAlt className="text-blue-700" />
               {listing.address}
             </p>
@@ -126,7 +126,7 @@ export default function Listing() {
                 {listing.description}
               </p>
             </p>
-            <ul className="text-blue-800 font-semibold text-lg flex flex-wrap items-center gap-4 sm:gap-6  border border-gray-300 bg-slate-200 rounded-lg p-4">
+            <ul className="text-blue-800 font-semibold text-lg flex flex-wrap items-center gap-4 sm:gap-6  border border-gray-300 bg-slate-200 rounded-lg p-9">
               <li className="flex items-center gap-1 whitespace-nowrap ">
                 <FaBed className="text-5xl" />
                 {listing.bedrooms > 1
@@ -148,14 +148,22 @@ export default function Listing() {
                 {listing.furnished ? "Furnished" : "Unfurnished"}
               </li>
             </ul>
-            {currentUser && listing.userRef !== currentUser._id && !contact && (
+             {/* {currentUser && listing.userRef !== currentUser._id && !contact && (  
               <button
                 onClick={() => setContact(true)}
-                className="bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 p-3"
+                className="bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 p-10"
               >
                 Contact Owner
               </button>
-            )}
+            )}  */}
+            {(!currentUser || (currentUser && listing.userRef !== currentUser._id)) && !contact && (
+  <button
+    onClick={() => setContact(true)}
+    className="bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 p-10"
+  >
+    Contact Owner
+  </button>
+)}
             {contact && <Contact listing={listing} />}
           </div>
         </div>

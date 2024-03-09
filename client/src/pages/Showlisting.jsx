@@ -145,6 +145,7 @@ export default function Showlisting() {
       setShowListingsError(false);
       const res = await fetch(`/backend/user/listings/${currentUser._id}`);
       const data = await res.json();
+      console.log(data);
       if (data.success === false) {
         setShowListingsError(true);
         return;
@@ -181,17 +182,37 @@ export default function Showlisting() {
   
   return (
     
-    <div className="bg-[rgb(144,179,183)]  mx-auto  bg-rounded-xl">
+    <div className=" px-36 mx-auto  bg-rounded-xl">
      
   
-      <p className='text-red-600 mt-5'>{showListingsError ? 'Error showing listings' : ''}</p>
+      <p className='text-red-600 '>{showListingsError ? 'Error showing listings' : ''}</p>
       {userListings && userListings.length > 0 && (
-        <div className='flex flex-col gap-4'>
-          <h1 className='text-center  text-2xl font-semibold'>Your Listings</h1>
+        <div className=''>
+          <div className='pt-10'>
+          <h1 className=' text-orange-100 text-center  text-2xl font-semibold'>Your Listings</h1>
+        </div>
+         <div className='pb-16'>
           {userListings.map((listing) => (
-            <div key={listing._id} className='border rounded-lg p-3 flex justify-between items-center gap-4 my-20'>
+            <div key={listing._id} className=' bg-orange-100 border rounded-lg text-center p-3 flex justify-between items-center gap-4 m-20'>
               <Link to={`/listing/${listing._id}`}>
-                <img src={listing.imageUrls[0]} alt='listing cover' className='h-16 w-16 object-contain' />
+                <img src={listing.imageUrls[0]} alt='listing cover' className='h-16 w-16 object-contain ml-14' />
+              </Link>
+              <Link className='text-slate-700 font-semibold hover:underline truncate ' to={`/listing/${listing._id}`}>
+                <p>{listing.name}</p>
+              </Link>
+              <div className='flex flex-col item-center'>
+                <button onClick={() => handleListingDelete(listing._id)} className='text-red-700 uppercase'>Delete</button>
+                <Link to={`/editlisting/${listing._id}`}>
+                  <button className='text-green-700 uppercase'>Edit</button>
+                </Link>
+              </div>
+            </div>
+          ))}
+{/* 
+{userListings.map((listing) => (
+            <div key={listing._id} className=' bg-orange-100 border rounded-lg text-center p-3 flex justify-between items-center gap-4 my-20'>
+              <Link to={`/listing/${listing._id}`}>
+                <img src={listing.imageUrls[0]} alt='listing cover' className='h-16 w-16 object-contain ml-14' />
               </Link>
               <Link className='text-slate-700 font-semibold hover:underline truncate flex-1' to={`/listing/${listing._id}`}>
                 <p>{listing.name}</p>
@@ -203,10 +224,10 @@ export default function Showlisting() {
                 </Link>
               </div>
             </div>
-          ))}
-        </div>
+          ))} */}
+        
+      </div></div>
       )}
-      	
     </div> 
   );
 }

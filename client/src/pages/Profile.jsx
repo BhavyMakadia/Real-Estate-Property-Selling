@@ -79,7 +79,7 @@ console.log(filePerc);
     try {
       dispatch(updateUserStart());
 
-      const res = await fetch(`backend/user/update/${currentUser._id}`, {
+      const res = await fetch(`/backend/user/update/${currentUser._id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -141,11 +141,11 @@ console.log(filePerc);
 
   return (
     
-    <div className="bg-[#90b3b7]  flex flex-col mx-auto bg-center">
+    <div className="  flex flex-col mx-auto bg-center pt-5 pb-5">
         
     <div className="  ">
    
-      <div className="flex justify-center items-center rounded-3xl mx-auto ">
+      <div className="flex justify-center items-center rounded-3xl mx-auto pb-10 ">
       <div className="bg-white overflow-hidden shadow rounded-lg border">
          <div className="px-2 py-2 sm:px-6">
               <h3 className="text-lg leading-6 font-medium text-gray-900">
@@ -182,7 +182,7 @@ console.log(filePerc);
               )}
             </p>
             <div className=" mx-auto">
-                <label for="username" className="text-lg 
+                <label htmlFor="username" className="text-lg 
                font-semibold">Username:</label>
                 <input
                   type="text"
@@ -194,7 +194,7 @@ console.log(filePerc);
                 />
             </div>
             <div className="mx-auto ">
-                <label for="password" className="text-lg mx-auto font-semibold">Password:</label>
+                <label htmlFor="password" className="text-lg mx-auto font-semibold">Password:</label>
                 <input
                   type="password"
                   placeholder="Password"
@@ -204,7 +204,7 @@ console.log(filePerc);
                 />
             </div>
             <div className="mx-auto ">
-                <label for="email" className="text-lg mx-auto font-semibold">Email:</label>
+                <label htmlFor="email" className="text-lg mx-auto font-semibold">Email:</label>
                 <input
                   type="text"
                   placeholder="Email"
@@ -223,7 +223,7 @@ console.log(filePerc);
             </p>
 
             
-            <div className="flex gap-3">
+            <div className="flex gap-3 pb-5">
                 <a href="/createlisting" className="bg-red-600 text-white rounded-lg p-4 uppercase hover:opacity-70 disabled:opacity-70">
                     Create Listing
                 </a>

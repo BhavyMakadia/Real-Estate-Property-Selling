@@ -5,7 +5,8 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import userRouter from './routes/user.route.js';
 import authRouter from './routes/auth.route.js';
-import listingRouter from './routes/listing.route.js'
+import listingRouter from './routes/listing.route.js';
+import path from 'path';
 dotenv.config();
 
 mongoose
@@ -16,7 +17,7 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
-
+  const __dirname = path.resolve();
 
   const app = express();
   app.use(cookieParser());
@@ -35,6 +36,14 @@ app.use(cors());
 app.use('/backend/user', userRouter);
 app.use('/backend/auth', authRouter);
 app.use('/backend/listing', listingRouter);
+
+//for render
+app.use(express.static(path.join(__dirname, '/client/dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+})
+
 
 app.use((err,req,res,next)=>{
   const statusCode =err.statusCode || 500;

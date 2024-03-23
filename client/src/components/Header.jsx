@@ -96,21 +96,7 @@ export default function Header() {
 
          
         </ul>
-        <form
-          onSubmit={handleSubmit}
-          className="bg-white p-3 rounded-lg flex items-center"
-        >
-          <input
-            type="text"
-            placeholder="Search.."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className=" focus:outline-none w-64 sm:w-64"
-          />
-          {/* <button>
-            <FaSearch className="text-slate-900" />
-          </button> */}
-        </form>
+    
       </div>
     </header>
   );

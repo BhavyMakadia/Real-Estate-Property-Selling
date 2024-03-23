@@ -22,6 +22,7 @@ import AdminUser from './components/AdminUsers';
 import AdminEditlist from './components/AdminEditlist';
 
 import Adminupdatelist from './components/Adminupdatelist';
+import AdminReview from './components/AdminReview';
 
 import AdminProfile from './components/AdminProfile';
 
@@ -65,6 +66,7 @@ function AppContent() {
           
            <Route element={<PrivateRoute />}>
            <Route path='/adminuser' element={<AdminUser />} />
+           <Route path='/adminreview' element={<AdminReview />} />
       
       <Route path='/adminedit' element={<AdminEditlist />} />
       <Route path='/adminprofile' element={<AdminProfile />} />

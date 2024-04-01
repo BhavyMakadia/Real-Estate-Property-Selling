@@ -1,11 +1,8 @@
 import React from 'react';
-import { FaSearch } from 'react-icons/fa';
-import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
-  const { currentUser } = useSelector((state) => state.user);
-
+  
   return (
     <footer className="bg-[#83b8b8]  text-center bottom-0 fixed  w-full pl-24  ">
       <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">

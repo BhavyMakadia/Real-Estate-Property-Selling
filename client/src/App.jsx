@@ -75,7 +75,7 @@ function AppContent() {
           <Route path='/adminlisting/:listingId' element={<Listing />} />
         </Route>
       </Routes>
-    //  <Footer />
+    
     </>
   );
 }

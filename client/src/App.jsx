@@ -79,7 +79,7 @@ function AppContent() {
         
       </Route> 
       </Routes>
-    <Footer/>
+    <Footer />
     </>
   );
 }

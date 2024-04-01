@@ -145,6 +145,19 @@ export default function AdminLayout() {
 </Link>
          </li>
          <li>
+         <Link to='/admincreatelisting' className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+  
+  <span className="flex-1 ms-3 whitespace-nowrap">Create property</span>
+</Link>
+         </li>
+         <li>
+         <Link to='/adminshowlisting' className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+  
+  <span className="flex-1 ms-3 whitespace-nowrap">Show property</span>
+</Link>
+         </li>
+         
+         <li>
          <Link  className="flex items-center p-2 text-blue-700 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
   
          <span className="flex-1 ms-3 whitespace-nowrap"

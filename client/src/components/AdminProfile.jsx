@@ -152,7 +152,7 @@ export default function AdminProfile() {
                       <h4 className="text-xl font-semibold text-gradient-to-r from-blue-500 via-blue-300 to-cyan-100 ">
                         We are best Property
                       </h4> */}
-                      <div className=" flex flex-col mx-auto bg-center">
+                      <div className=" flex flex-col mx-auto bg-center pb-10">
                         <div className="   ">
                           <div className="flex justify-center items-center rounded-3xl mx-auto pt-2 pb-10 ">
                             <div className="bg-blue-100 overflow-hidden shadow rounded-lg border">

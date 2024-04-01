@@ -14,7 +14,13 @@ const ContactUs = () => {
         <p className='mb-4 text-slate-700 text-lg'>
           Contact Bhavy Estate today, and let us help you navigate the world of real estate with ease and confidence.
         </p>
-      
+        
+        <p className='mb-4 text-slate-700 text-lg'>
+          Phone: <a href="tel:9875554321" className="text-blue-500">9875554321</a>
+        </p>
+        <p className='mb-4 text-slate-700 text-lg'>
+          Email: <a href="mailto:bhavyestate@gmail.com" className="text-blue-500">bhavyestate@gmail.com</a>
+        </p>
       </div>
     </div>
   );

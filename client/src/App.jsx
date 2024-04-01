@@ -14,12 +14,14 @@ import CreateListing from './pages/CreateListing';
 import Showlisting from './pages/Showlisting';
 import EditList from './pages/EditList';
 import Listing from './pages/Listing';
+import AdminCreateListing from './components/AdminCreateListing';
 
 import React, { useState, useEffect } from 'react';
 import AdminLayout from './components/AdminLayout';
 import AdminHome from './components/AdminHome';
 import AdminUser from './components/AdminUsers';
 import AdminEditlist from './components/AdminEditlist';
+import AdminShowlisting from './components/AdminShowlisting';
 
 import Adminupdatelist from './components/Adminupdatelist';
 import AdminReview from './components/AdminReview';
@@ -67,7 +69,9 @@ function AppContent() {
            <Route element={<PrivateRoute />}>
            <Route path='/adminuser' element={<AdminUser />} />
            <Route path='/adminreview' element={<AdminReview />} />
-      
+           <Route path='/admincreatelisting' element={<AdminCreateListing />} />
+           <Route path='/adminshowlisting' element={<AdminShowlisting />} />
+                 
       <Route path='/adminedit' element={<AdminEditlist />} />
       <Route path='/adminprofile' element={<AdminProfile />} />
       <Route path='/adminupdatelist/:listingId' element={<Adminupdatelist />} />

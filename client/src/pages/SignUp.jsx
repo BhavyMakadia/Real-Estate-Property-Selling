@@ -60,8 +60,8 @@ export default function SignUp() {
                       <h4 className=" mt-1 pb-1 text-xl font-semibold text-orange-100">
                         We are for Property
                       </h4>
-                      <div className="pl-2  max-w-lg mx-auto text-red-100">
-                        <h1 className="text-3xl text-center font-semibold my-7">
+                      <div className="pl-2  max-w-lg mx-auto ">
+                        <h1 className="text-3xl text-red-100 text-center font-semibold my-7">
                           Hello,First We Sign Up
                         </h1>
 

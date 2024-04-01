@@ -243,15 +243,15 @@ export default function Listing() {
           </li>
         </ul>
         <p className="text-slate-800  border-gray-300 rounded-xl p-4 flex justify-center items-center">
-  {(!currentUser ||
-    (currentUser && listing.userRef !== currentUser._id)) &&
-    !contact && (
-      <button
-        onClick={() => setContact(true)}
-        className="text-slate-800 bg-blue-200 border border-gray-300 rounded-xl p-5"
-      >
-        Contact Owner
-      </button>
+        {currentUser && listing.userRef !== currentUser._id && !contact ? (
+        <button
+            onClick={() => setContact(true)}
+            className="text-slate-800 bg-blue-200 border border-gray-300 rounded-xl p-5"
+        >
+            Contact Owner
+        </button>
+    ) : (
+        <span className="text-slate-800">Please sign in to contact the owner.</span>
     )}
 </p>
         {contact && <Contact listing={listing} />}
@@ -302,7 +302,7 @@ export default function Listing() {
               </form>
             )}
 */}
-{currentUser && (
+{currentUser ? (
   <form onSubmit={handleSubmit} className="mt-8">
     <div className="flex flex-col gap-4 items-center">
       <div className="flex gap-2">
@@ -349,6 +349,8 @@ export default function Listing() {
       </button>
     </div>
   </form>
+) : (
+  <div className="text-white">Please sign in to submit a review.</div>
 )}
 
         <div className="mt-8 pb-40"> 

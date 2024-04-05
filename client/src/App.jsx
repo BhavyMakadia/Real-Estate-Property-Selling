@@ -7,7 +7,7 @@ import ContactUs from './pages/ContactUs';
 import Search from './pages/Search';
 
 import Profile from './pages/Profile';
-//import Footer from './components/Footer';
+import Footer from './components/Footer';
 import Header from './components/Header';
 import PrivateRoute from './components/PrivateRoute';
 import CreateListing from './pages/CreateListing';
@@ -75,6 +75,7 @@ function AppContent() {
           <Route path='/adminlisting/:listingId' element={<Listing />} />
         </Route>
       </Routes>
+      <Footer/>
     
     </>
   );
